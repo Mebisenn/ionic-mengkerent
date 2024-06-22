@@ -1,0 +1,71 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <div id="container">
+      <ion-card>
+        <ion-card-content>
+          <ion-row>
+            <h1>Detail Pembayaran</h1>
+          </ion-row>
+          <ion-list>
+            <ion-item>
+              <ion-label>
+                <h2>Biaya Sewa</h2>
+              </ion-label>
+              <ion-label slot="end">
+                <h2>Rp 100.000</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <h2>Biaya Pengiriman</h2>
+              </ion-label>
+              <ion-label slot="end">
+                <h2>Rp 150.000</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <h2>Biaya Supir</h2>
+              </ion-label>
+              <ion-label slot="end">
+                <h2>Rp 150.000</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <h2>Potongan Harga</h2>
+              </ion-label>
+              <ion-label slot="end">
+                <h2>Rp 50.000</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <h2>Total</h2>
+              </ion-label>
+              <ion-label slot="end">
+                <h2>Rp 300.000</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <h2>Pilih Metode Pembayaran</h2>
+              </ion-label>
+              <ion-select
+                placeholder="Pilih Metode Pembayaran"
+                (ionChange)="onPaymentMethodChange($event)"
+              >
+                <ion-select-option value="cash">Cash</ion-select-option>
+                <ion-select-option value="lainnya">Lainnya</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      <ion-checkbox labelPlacement="end">Saya menyetujui syarat dan ketentuan</ion-checkbox>
+      <ion-row>
+        <ion-button color="black" expand="block" fill="clear" (click)="pay()">Bayar</ion-button>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>

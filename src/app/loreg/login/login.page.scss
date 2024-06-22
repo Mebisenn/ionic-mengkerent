@@ -1,0 +1,121 @@
+#container {
+  text-align: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+}
+
+ion-card {
+  border-radius: 2%;
+}
+
+h2 {
+    font-weight: bold;
+    color: #164863;
+    text-align: center;
+}
+
+ion-grid {
+  // height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-row {
+  align-items: center;
+}
+
+p {
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #86B6F6;
+  text-align: center; /* Optional: align text center */
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+.custom-item {
+    width: 100%;
+  }
+  
+.input-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.custom-label {
+    font-size: 17px;
+    padding: 0 8px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+    padding-bottom: 4px;
+  }
+
+ion-input.custom{
+    height: 32px;
+    width: 350px;
+    background: #ffffff;
+    border-radius: 10px;
+    border-color: #0008ff;
+    border-style: solid;
+    border-width: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+}
+
+ion-input.custom ion-icon {
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+  
+ion-input.custom::placeholder {
+    text-align: center;
+}
+
+ion-button {
+  height: 3rem;
+  margin: 5px;
+  background: #0008ff;
+
+  color: rgb(255, 255, 255);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  width: 250px;
+  border-radius: 20px;
+  border-color: #001550;
+  border-style: solid;
+  border-width: 2px;
+  align-items: center;
+}
+
+ion-col.ion-text-center {
+  justify-content: center;
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.image-container img {
+  max-width: 100%; /* Maksimum lebar gambar adalah lebar container */
+  height: auto; /* Biarkan tinggi gambar dihitung secara otomatis */
+  max-height: 150px; /* Maksimum tinggi gambar, ubah sesuai kebutuhan */
+}
+

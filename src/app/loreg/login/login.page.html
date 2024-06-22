@@ -1,0 +1,53 @@
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <div id="container">
+        <ion-card>
+          <ion-col size="12" class="ion-text-center">
+            <h2>Login Account</h2>
+            <p>Hello, welcome to Mengkerent.Id</p>
+            <div class="image-container">
+              <img src="assets/icon/logomengkerent.jpg" alt="Deskripsi gambar">
+            </div>
+
+            <form (ngSubmit)="onSubmit()">
+              <div class="input-container"> 
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Email</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-input
+                      placeholder="enter Email here"
+                      class="custom"
+                      type="email"
+                      [(ngModel)]="email"
+                      name="email"
+                    ><ion-icon name="mail" slot="start"></ion-icon></ion-input>
+                  </ion-item>
+                </div>
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Password</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-input 
+                      type="password" 
+                      value="" 
+                      class="custom" 
+                      placeholder="enter your password" 
+                      [(ngModel)]="password" 
+                      name="password"
+                    > 
+                      <ion-icon name="lock-open-outline" slot="start"></ion-icon>
+                      <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
+                    </ion-input>
+                  </ion-item>
+                </div>
+              </div>
+              <br>
+              <ion-button type="submit" ion-button fill="clear">Login</ion-button>
+            </form><br>
+            <p>Don’t have an account? <a (click)="register()">Register</a></p>
+          </ion-col>
+        </ion-card>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

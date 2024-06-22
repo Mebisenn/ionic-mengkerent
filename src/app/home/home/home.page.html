@@ -1,0 +1,117 @@
+<!-- home.page.html -->
+<ion-header style="background-color: #6c71f7;">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" size-md="2" size-lg="1">
+        <img style="height: 70px" alt="logo" src="/assets/icon/mengkerent.png" />
+      </ion-col>
+      <ion-col size="9" size-md="2" size-lg="2">
+        <h1 >Mengkerent.Id</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-text color="black" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center;">
+    <h1>Car Category</h1>
+  </ion-text>
+  <ion-grid [fixed]="true">
+    <ion-row class="category">
+      <ion-col size="4">
+        <ion-card (click)="onSubmits('SUV')" style="background-color:rgb(223, 223, 223)">
+          <ion-card-content>
+            <ion-thumbnail>
+              <img alt="SUV-Car" src="/assets/images/suv.png" />
+            </ion-thumbnail>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card (click)="onSubmits('MPV')" style="background-color:rgb(223, 223, 223)">
+          <ion-card-content>
+            <ion-thumbnail>
+              <img alt="MVP-Car" src="/assets/images/mvp.png" />
+            </ion-thumbnail>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="4">
+        <ion-card (click)="onSubmits('Sedan')" style="background-color:rgb(223, 223, 223)">
+          <ion-card-content>
+            <ion-thumbnail>
+              <img alt="Sedan-Car" src="/assets/images/sedan.png" />
+            </ion-thumbnail>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center;">Car Recommendations</h1>
+  <swiper-container (slidechange)="SwiperSlideChanged($event)" [loop]="true" [pagination]="true">
+    <ng-container *ngIf="recommendedCars.length > 0; else noData">
+      <swiper-slide *ngFor="let car of recommendedCars">
+        <ion-card style="background-color:#6c71f7">
+          <ion-card-title style="text-align: center; margin-top: 20px; font-weight:bold">{{ car.car_unit.car_category }}</ion-card-title><br>
+          <ion-thumbnail>
+            <img [src]="car.car_unit.car_photo" (click)="goToDetails(car.car_unit.id)" />
+          </ion-thumbnail><br>
+          <ion-card-title style="text-align: center; font-weight:bold">{{ car.car_unit.nama_mobil }}</ion-card-title><br>
+          <ion-card color="medium">
+            <ion-card-header style="background-color:#494caf; font-weight:bold">
+              <ion-card-title style="text-align: center">Detail</ion-card-title>
+            </ion-card-header>
+            <ion-card-content style="background-color:#494caf">
+              <p><ion-icon name="people"></ion-icon> {{ car.car_unit.seats }} Seat</p>
+              <p><ion-icon slot="end" name="cog-outline"></ion-icon> {{ car.car_unit.transmisi }}</p>
+              <p><ion-icon slot="end" name="cash-outline"></ion-icon> Rp{{ car.car_unit.price_24jam }}/Day</p>
+            </ion-card-content>
+          </ion-card><br>
+        </ion-card>
+      </swiper-slide>
+    </ng-container>
+    <ng-template #noData>
+      <ion-card>
+        <ion-card-content>
+          <p>No car recommendations available.</p>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+  </swiper-container>
+  
+  <ion-text color="black">
+    <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center;">Promo</h1>
+  </ion-text>
+  
+  <ion-card style="background-color:rgb(223, 223, 223)" *ngIf="promoTitle || promoContent">
+    <ion-card-header>
+      <ion-card-title>{{ promoTitle }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{ promoContent }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<div id="tabs">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="home()" id="home" tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      Home
+    </ion-tab-button>
+    <ion-tab-button (click)="order()" tab="radio">
+      <ion-icon name="car-outline"></ion-icon>
+      Order
+    </ion-tab-button>
+    <ion-tab-button (click)="transaksi()" tab="transaksi">
+      <ion-icon name="cash-outline"></ion-icon>
+      Transaksi
+    </ion-tab-button>
+    <ion-tab-button (click)="profile()" tab="library">
+      <ion-icon name="person-outline"></ion-icon>
+      Profile
+    </ion-tab-button>
+  </ion-tab-bar>
+</div>

@@ -1,0 +1,151 @@
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <div id="container">
+        <ion-card>
+          <ion-col size="12" class="ion-text-center">
+            <h2>Register Account</h2>
+            <p>Create a new account</p>
+            <div class="image-container">
+              <img src="assets/icon/logomengkerent.jpg" alt="Deskripsi gambar">
+            </div>
+            <form (submit)="onSubmit()">
+              <div class="input-container">
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Name</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-input
+                      placeholder="Enter your name here"
+                      class="custom"
+                      [(ngModel)]="name"
+                      name="name"
+                      required
+                    >
+                      <ion-icon name="person" slot="start"></ion-icon>
+                    </ion-input>
+                  </ion-item>
+                </div>
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Username</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-input
+                      placeholder="Enter username here"
+                      class="custom"
+                      [(ngModel)]="username"
+                      name="username"
+                      required
+                    >
+                      <ion-icon name="person" slot="start"></ion-icon>
+                    </ion-input>
+                  </ion-item>
+                </div>
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Email</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-input
+                      placeholder="Enter email here"
+                      class="custom"
+                      type="email"
+                      [(ngModel)]="email"
+                      name="email"
+                      required
+                    >
+                      <ion-icon name="mail" slot="start"></ion-icon>
+                    </ion-input>
+                  </ion-item>
+                </div>
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Nomor Handphone</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-input
+                      placeholder="Enter your phone number"
+                      class="custom"
+                      [(ngModel)]="no_telfon"
+                      name="no_telfon"
+                      required
+                    >
+                      <ion-icon name="call" slot="start"></ion-icon>
+                    </ion-input>
+                  </ion-item>
+                </div>
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Pekerjaan</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-input
+                      placeholder="Enter your occupation"
+                      class="custom"
+                      [(ngModel)]="pekerjaan"
+                      name="pekerjaan"
+                      required
+                    >
+                      <ion-icon name="briefcase" slot="start"></ion-icon>
+                    </ion-input>
+                  </ion-item>
+                </div>
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Alamat</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-input
+                      placeholder="Enter your address"
+                      class="custom"
+                      [(ngModel)]="alamat"
+                      name="alamat"
+                      required
+                    >
+                      <ion-icon name="home" slot="start"></ion-icon>
+                    </ion-input>
+                  </ion-item>
+                </div>
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Jenis Kelamin</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-select [(ngModel)]="gender" name="gender" placeholder="Select gender" class="custom">
+                      <ion-select-option value="laki-laki">Laki-laki</ion-select-option>
+                      <ion-select-option value="perempuan">Perempuan</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </div>
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Create Password</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-input
+                      type="password"
+                      placeholder="Enter password"
+                      class="custom"
+                      [(ngModel)]="password"
+                      name="password"
+                      required
+                    >
+                      <ion-icon name="lock-closed" slot="start"></ion-icon>
+                      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+                    </ion-input>
+                  </ion-item>
+                </div>
+                <div class="input-line">
+                  <ion-label position="stacked" class="custom-label">Confirm Password</ion-label>
+                  <ion-item class="custom-item">
+                    <ion-input
+                      type="password"
+                      placeholder="Confirm password"
+                      class="custom"
+                      [(ngModel)]="confirmPassword"
+                      name="confirmPassword"
+                      required
+                    >
+                      <ion-icon name="lock-open" slot="start"></ion-icon>
+                      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+                    </ion-input>
+                  </ion-item>
+                </div>
+              </div>
+              <br><br>
+              <p>By registering, I Agree to Terms & Privacy Policy of Mengkerent.id</p><br>
+              <ion-button type="submit" fill="clear">Register</ion-button>
+            </form><br>
+            <p>Already have an account? <a (click)="onSubmits()">Login</a></p>
+          </ion-col>
+        </ion-card>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

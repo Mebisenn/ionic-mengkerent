@@ -1,0 +1,100 @@
+<ion-content class="ion-text-center content-center">
+  <div id="container">
+    <ion-card>
+      <p>Atur Penyewaan</p><br>
+      <ion-card class="boy">
+        <ion-card-content>
+          <div class="car-card">
+            <div class="name-car">
+              <img [src]="'https://www.sipelantis.com/images/' + car?.car_photo" alt="Deskripsi gambar">   
+            </div>
+            <div class="spek">
+              <h1>{{ car?.nama_mobil }}</h1>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-item>
+        <ion-icon name="car-outline" slot="start"></ion-icon>
+        <ion-label>Durasi Peminjaman</ion-label>
+        <ion-select
+          aria-label="Durasi"
+          interface="action-sheet"
+          placeholder="Durasi"
+          [(ngModel)]="selectedDuration"
+          (ionChange)="durationChanged()"
+        >
+          <ion-select-option value="6jam">6 Jam</ion-select-option>
+          <ion-select-option value="12jam">12 Jam</ion-select-option>
+          <ion-select-option value="24jam">24 Jam</ion-select-option>
+          <ion-select-option value="custom">1 hari+</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="selectedDuration === 'custom'">
+        <ion-icon name="calendar-outline" slot="start"></ion-icon>
+        <ion-label>Durasi Penyewaan (hari)</ion-label>
+        <div class="number-input">
+          <ion-button class="plus" color="black" (click)="increment()">+</ion-button>
+          <ion-input type="number" [(ngModel)]="number" readonly></ion-input>
+          <ion-button class="minus" color="black" (click)="decrement()">-</ion-button>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="car-outline" slot="start"></ion-icon>
+        <ion-radio-group
+          [allowEmptySelection]="true"
+          [(ngModel)]="selectedService"
+          (ionChange)="serviceChanged()"
+        >
+          <ion-list>
+            <ion-item>
+              <ion-label>Pakai Driver?</ion-label>
+              <ion-radio slot="end" value="driver"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Di Antar Ke Rumah?</ion-label>
+              <ion-radio slot="end" value="antar"></ion-radio>
+            </ion-item>
+          </ion-list>
+        </ion-radio-group>
+      </ion-item>
+
+      <ion-card *ngIf="selectedService === 'driver' || selectedService === 'antar'" color="light">
+        <ion-card-header>
+          <ion-card-subtitle>Alamat :</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-textarea placeholder="Masukan alamat rumah" [(ngModel)]="alamat"></ion-textarea>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-row>
+        <ion-button (click)="booking()" expand="block">Next</ion-button>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>
+
+<div id="tabs">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="home()" id="home" tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      Home
+    </ion-tab-button>
+    <ion-tab-button (click)="order()" tab="radio">
+      <ion-icon name="car-outline"></ion-icon>
+      Order
+    </ion-tab-button>
+    <ion-tab-button (click)="transaksi()" tab="transaksi">
+      <ion-icon name="cash-outline"></ion-icon>
+      Transaksi
+    </ion-tab-button>
+    <ion-tab-button (click)="profile()" tab="library">
+      <ion-icon name="person-outline"></ion-icon>
+      Profile
+    </ion-tab-button>
+  </ion-tab-bar>
+</div>

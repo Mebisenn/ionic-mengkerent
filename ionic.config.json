@@ -1,0 +1,7 @@
+{
+  "name": "project_mengkerent",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

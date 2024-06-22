@@ -1,0 +1,116 @@
+ion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for depth */
+}
+
+ion-header h1{
+  font-weight: bold;
+  padding-left: 40%;
+  margin-right: -50%;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+ion-header img {
+  margin-left: 40%;
+}
+  
+  ion-grid {
+    --size: 80px;
+    --border-radius: 14px;
+  }
+  
+  ion-grid {
+    display: flex;
+  }
+  
+  ion-grid img {
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+  }
+  
+  /* Menghilangkan margin kanan pada gambar terakhir */
+  ion-grid img:last-child {
+    margin-right: 0;
+  }
+  
+  .swiper-container {
+    /* Atur warna pagination dan scrollbar */
+    --swiper-pagination-bullet-inactive-color: var(--ion-color-step-200, #cccccc);
+    --swiper-pagination-color: var(--ion-color-primary, #0054e9);
+    --swiper-pagination-progressbar-bg-color: rgba(
+      var(--ion-text-color-rgb, 0, 0, 0),
+      0.25
+    );
+    --swiper-scrollbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.1);
+    --swiper-scrollbar-drag-bg-color: rgba(
+      var(--ion-text-color-rgb, 0, 0, 0),
+      0.5
+    );
+  }
+  
+  .swiper-slide {
+    /* Atur properti slide */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Lebar slide */
+  }
+  
+  .swiper-slide ion-card {
+    /* Atur kartu */
+    width: 370px; /* Lebar kartu */
+    margin: 10px; /* Jarak antara kartu */
+    text-align: center;
+  }
+  
+  .swiper-slide ion-card ion-thumbnail {
+    /* Atur gambar */
+    justify-content: center;
+    --size: 140px;
+    --border-radius: 14px;
+    object-fit: cover; /* Mengisi gambar dalam kontainer */
+    overflow: hidden; /* Agar gambar tidak terlalu besar */
+  }
+  
+  .category ion-thumbnail {
+    /* Atur ukuran thumbnail */
+    --thumbnail-width: 100%; /* Lebar thumbnail responsif */
+    --thumbnail-height: 60px; /* Tinggi thumbnail akan menyesuaikan proporsi gambar */
+    --thumbnail-border-radius: 14px;
+    width: var(--thumbnail-width);
+    height: var(--thumbnail-height);
+    border-radius: var(--thumbnail-border-radius);
+    overflow: hidden; /* Agar gambar tidak terlalu besar */
+  }
+  
+  .category ion-thumbnail img {
+    /* Atur agar gambar mengisi thumbnail */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Memastikan gambar tidak terlalu terdistorsi */
+  }
+  
+  ion-thumbnail {
+    /* Atur ukuran thumbnail */
+    --thumbnail-width: 100%; /* Lebar thumbnail responsif */
+    --thumbnail-height: 300px; /* Tinggi thumbnail akan menyesuaikan proporsi gambar */
+    --thumbnail-border-radius: 14px;
+    width: var(--thumbnail-width);
+    height: var(--thumbnail-height);
+    border-radius: var(--thumbnail-border-radius);
+    overflow: hidden; /* Agar gambar tidak terlalu besar */
+  }
+  
+  ion-thumbnail img {
+    /* Atur agar gambar mengisi thumbnail */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Memastikan gambar tidak terlalu terdistorsi */
+  }
+  

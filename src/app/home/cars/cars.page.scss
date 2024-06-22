@@ -1,0 +1,82 @@
+ion-header {
+    align-items: center;
+    background: #6c71f7;
+}
+
+ion-header ion-row {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+ion-header ion-searchbar {
+    width: 150%;
+    padding-right: 0%;
+    margin-left: -40%;
+}
+
+.services {
+    position: absolute;
+    right: 0;
+    padding-right: 5%;
+    width: 8%;
+    height: auto;
+}
+
+ion-col {
+    color: #000000;
+    text-align: center;
+    font-weight: bolder;
+}
+
+h4 {
+    color: #000000;
+    font-weight: bold;
+}
+
+p {
+    color: #000000;
+}
+
+ion-searchbar {
+    background: #ffffff;
+    color: #fff;
+  
+    border-radius: 20px;
+  }
+
+.name-car {
+    display: flex;
+    justify-content: center; /* Untuk mengatur gambar ke tengah secara horizontal */
+    align-items: center; /* Untuk mengatur gambar ke tengah secara vertikal */
+    height: 100%; /* Untuk mengisi seluruh tinggi dari div parent (ion-card) */
+}
+
+ion-card.boy {
+    background: #6c71f7;
+    border-radius: 25px;
+    height: auto;
+    width: auto;
+}
+
+.price {
+    display: block;
+}
+
+.cash {
+    padding-left: 100px;
+}
+
+.spek {
+    margin-bottom: 20px;
+  }
+
+.details {
+    display: block;
+    justify-content: space-between;
+  }
+
+.car-card {
+    display: flex;
+}

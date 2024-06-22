@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detail Mobil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="car">
+    <ion-card-content>
+      <div class="car-card">
+        <div class="name-car">
+          <img [src]="'https://www.sipelantis.com/images/' + car?.car_photo" alt="Deskripsi gambar">
+        </div>
+        <div class="spek">
+          <h1>{{ car?.nama_mobil }}</h1>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="background-color:#6c71f7" *ngIf="car">
+    <ion-card-content>
+      <h1>Spesifikasi</h1><br>
+      <ion-item>
+        <ion-label><ion-icon name="calendar-outline"></ion-icon> {{ car?.tahun_mobil }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="bed-outline"></ion-icon> {{ car?.seats }} Seats</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="cog-outline"></ion-icon> {{ car?.transmisi }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="color-palette-outline"></ion-icon> {{ car?.warna }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="speedometer-outline"></ion-icon> {{ car?.kapasitas_mesin }} cc</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="speedometer-outline"></ion-icon> {{ car?.plat_mobil }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="speedometer-outline"></ion-icon> {{ car?.price_24jam }} rupiah</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="speedometer-outline"></ion-icon> {{ car?.merk_mobil }}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <p>Status: {{ car?.status }}</p> <!-- Ganti dengan properti yang sesuai dari respons API -->
+
+  <ion-row>
+    <ion-button (click)="onSubmit()" >Pesan</ion-button>
+  </ion-row>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</ion-content>
+<div id="tabs">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="home()" id="home" tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      Home
+    </ion-tab-button>
+    <ion-tab-button (click)="order()" tab="radio">
+      <ion-icon name="car-outline"></ion-icon>
+      Order
+    </ion-tab-button>
+    <ion-tab-button (click)="transaksi()" tab="transaksi">
+      <ion-icon name="cash-outline"></ion-icon>
+      Transaksi
+    </ion-tab-button>
+    <ion-tab-button (click)="profile()" tab="library">
+      <ion-icon name="person-outline"></ion-icon>
+      Profile
+    </ion-tab-button>
+  </ion-tab-bar>
+</div>

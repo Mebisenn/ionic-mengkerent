@@ -1,0 +1,102 @@
+<ion-header style="background:blue;">
+  <ion-toolbar>
+    <ion-title>Transaksi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="booking">
+      <ion-label>Booking</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="proses">
+      <ion-label>Proses</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="selesai">
+      <ion-label>Selesai</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Konten untuk segmen "Booking" -->
+  <div *ngIf="selectedSegment === 'booking'">
+    <ion-card *ngFor="let transaction of transactions.booking">
+      <ion-card-content>
+        <div class="car-card">
+          <div class="spek">
+            <h1>{{ transaction.nama_mobil }}</h1>
+            <p class="seats"><ion-icon name="bed-outline"></ion-icon> {{ transaction.durasi }}</p>
+            <div class="price">
+              <p><ion-icon name="cog-outline"></ion-icon> {{ transaction.pelayanan }}</p>
+              <p class="cash">{{ transaction.plat_mobil }}</p>
+              <p class="cash">Rp{{ transaction.harga }}</p>
+            </div>
+          </div>
+          <!-- Tombol Cancel -->
+          <ion-button expand="block" color="danger" (click)="cancelTransaction(transaction.id)">
+            Cancel
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Konten untuk segmen "Proses" -->
+  <div *ngIf="selectedSegment === 'proses'">
+    <ion-card *ngFor="let transaction of transactions.proses">
+      <ion-card-content>
+        <div class="car-card">
+          <div class="spek">
+            <h1>{{ transaction.nama_mobil }}</h1>
+            <p class="seats"><ion-icon name="bed-outline"></ion-icon> {{ transaction.durasi }}</p>
+            <div class="price">
+              <p><ion-icon name="cog-outline"></ion-icon> {{ transaction.pelayanan }}</p>
+              <p class="cash">{{ transaction.plat_mobil }}</p>
+              <p class="cash">Rp{{ transaction.harga }}/Day</p>
+            </div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Konten untuk segmen "Selesai" -->
+  <div *ngIf="selectedSegment === 'selesai'">
+    <ion-card *ngFor="let transaction of transactions.selesai">
+      <ion-card-content>
+        <div class="car-card">
+          <div class="spek">
+            <h1>{{ transaction.nama_mobil }}</h1>
+            <p class="seats"><ion-icon name="bed-outline"></ion-icon> {{ transaction.durasi }}</p>
+            <div class="price">
+              <p><ion-icon name="cog-outline"></ion-icon> {{ transaction.pelayanan }}</p>
+              <p class="cash">{{ transaction.plat_mobil }}</p>
+              <p class="cash">Rp{{ transaction.harga }}/Day</p>
+              <p class="cash">{{ transaction.status }}</p>
+            </div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<div id="tabs">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="home()" tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="order()" tab="radio">
+      <ion-icon name="car-outline"></ion-icon>
+      <ion-label>Order</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="transaksi()" tab="transaksi">
+      <ion-icon name="cash-outline"></ion-icon>
+      <ion-label>Transaksi</ion-label>
+    </ion-tab-button>
+    <ion-tab-button (click)="profile()" tab="library">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</div>

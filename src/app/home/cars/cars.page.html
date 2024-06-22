@@ -1,0 +1,63 @@
+<ion-header style="background: #6c71f7;">
+  <ion-toolbar>
+    <ion-grid [fixed]="true">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="6">
+          <ion-select [(ngModel)]="selectedCategory" (ionChange)="filterCars()">
+            <ion-select-option value="all">All</ion-select-option>
+            <ion-select-option value="mpv">MPV</ion-select-option>
+            <ion-select-option value="suv">SUV</ion-select-option>
+            <ion-select-option value="sedan">Sedan</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col size="6">
+          <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="filterCars()" color="black"></ion-searchbar>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <ion-card class="boy" *ngFor="let car of filteredCars" (click)="goToDetails(car.id)">
+    <ion-card-content style="padding: 10px;">
+      <div class="car-card">
+        <ion-card style="background-color: #6c71f7; display: flex; justify-content: center; align-items: center;">
+          <div class="name-car">
+            <img [src]="'https://www.sipelantis.com/images/' + car.car_photo" alt="Deskripsi gambar" style="max-width: 100%;">
+          </div>
+        </ion-card>
+        <div class="spek">
+          <h4>{{ car.nama_mobil }}</h4>
+          <p class="seats"><ion-icon name="bed-outline"></ion-icon> {{ car.seats }} seats</p>
+          <p class="seats"><ion-icon name="bed-outline"></ion-icon> {{ car.plat_mobil }}</p>
+          <div class="price">
+            <p><ion-icon name="cog-outline"></ion-icon> {{ car.transmisi }}</p>
+            <p class="cash">Rp{{ car.price_24jam }}/Day</p>
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<div id="tabs">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="home()" id="home" tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      Home
+    </ion-tab-button>
+    <ion-tab-button (click)="order()" tab="radio">
+      <ion-icon name="car-outline"></ion-icon>
+      Order
+    </ion-tab-button>
+    <ion-tab-button (click)="transaksi()" tab="transaksi">
+      <ion-icon name="cash-outline"></ion-icon>
+      Transaksi
+    </ion-tab-button>
+    <ion-tab-button (click)="profile()" tab="library">
+      <ion-icon name="person-outline"></ion-icon>
+      Profile
+    </ion-tab-button>
+  </ion-tab-bar>
+</div>
